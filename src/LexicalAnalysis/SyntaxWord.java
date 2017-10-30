@@ -171,6 +171,12 @@ public class SyntaxWord {
             if (i.length() == 0){
                 continue;
             }
+            if (i.equals("#")){
+                if (stringBuilder.length()!=0){
+                    tokenList.add(syntax(stringBuilder.toString()));
+                }
+                break;
+            }
             if (i.equals("'")){
                 if (!strFlag){
                     strFlag = true;

@@ -10,6 +10,25 @@
 * 然后根据语法树构建各个参数,最后可以得到DFA,DFA我是用的一个List表示,详情请看相关注释
 * 最后词法分析器我是先构建好各个DFA,然后先一个字符一个字符往后扫描,将符号和字符串分开,符号直接生成token,字符串通过正则表达式判定种类以及正误,判断类型的先后顺序是 `符号(字符串)->保留字->标识符(数字)`,(括号里面等同于平级,级在同一阶段检测)除了这几类,我单独有一个类型字符串,因为发现和标识符放一起不太对,但是通过正则又不好写,因为字符串接受一切类型,于是在扫描时通过其 `'字符串'` 特殊结构直接将其生成token,对于注释的判定,只规定了单行注释即 `#`,在生成token时直接忽略
 
-```文件结构:
+### 文件结构
 
+```文件结构:
+│  .gitignore
+│  CompilerCoding.iml
+│  test.pt //自定义的语言的一个测试样例
+└─src
+    ├─LexicalAnalysis
+    │      DFA.java
+    │      draw.java DFA可视化的类
+    │      Graph.java DFA的图
+    │      minDfa.java 最小化DFA
+    │      reText.java 正则表达式的类
+    │      stringAddSomething.java 给正则表达式添加cat节点
+    │      syntaxTree.java 抽象语法树
+    │      SyntaxWord.java 词法分析的类
+    │      Token.java 
+    │
+    └─Tools
+            myIoClass.java 输入输出类
+            MyTools.java 一些需要用到的工具的类
 ```

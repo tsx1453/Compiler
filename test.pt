@@ -1,0 +1,42 @@
+def creat_tree(data_set){
+    header_set = {};
+    for i in data_set{
+        for j in i.split(','){
+            if 'root' == j{
+                continue;
+            }
+            header_set[j] = header_set.get(j,0) + data_set[i];
+        }
+    }
+    temp = copy.copy(list(header_set.keys()));
+    for i in temp{
+        if header_set[i] < min_support{
+            del header_set[i];
+        }
+    }
+    for i in header_set{
+        header_set[i] = [header_set[i],None];
+    }
+    fre_item_set = set(header_set.keys());
+    if len(fre_item_set) == 0{
+        return None,None;
+    }
+    fp_tree = Node('root',1, None);
+    for i,count in data_set.items(){
+        data = [];
+        for j in i.split(','){
+            if len(j) == 0{
+                continue;
+            }
+            if j in fre_item_set{
+                data.append(j);
+            }
+        }
+        data.sort(key = lambda x:int(x),reverse = True);
+        data.sort(key = lambda x:header_set[x][0],reverse = False);
+        if len(data) > 0{
+            insert(data, fp_tree, header_set,count);
+        }
+    }
+    return fp_tree,header_set;
+}

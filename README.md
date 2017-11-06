@@ -33,10 +33,10 @@
             myIoClass.java 输入输出类
             MyTools.java 一些需要用到的工具的类
 ```
- 主要方法均在龙书以及相应代码的注释中,如有错误以及不足欢迎指出.
-=======
 ### 流程
 `reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `syntaxTree.java构建抽象语法树` -->
 `DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `SyntaxWord.java词法分析并生成token序列`
 ### 使用方法
 直接调用`SyntaxWord`类的`LexcalAnalysis()`方法即可，其参数为源代码的位置，会在同级生成xxx.token的保存着token序列的文本文件
+
+主要方法均在龙书以及相应代码的注释中,如有错误以及不足欢迎指出.

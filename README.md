@@ -19,29 +19,27 @@
 │  test.pt //自定义的语言的一个测试样例
 └─src
     ├─LexicalAnalysisPackage
-    │      DFA.java
-    │      draw.java DFA可视化的类
-    │      Graph.java DFA的图
-    │      minDfa.java 最小化DFA
-    │      reText.java 正则表达式的类
-    │      stringAddSomething.java 给正则表达式添加cat节点
-    │      syntaxTree.java 抽象语法树
-    │      SyntaxWord.java 词法分析的类
-    │      Token.java
+    │      DFA.java  DFA的类
+    │      draw.java DFA可视化
+    │      Graph.java  DFA的图
+    │      LexicalAnalysis.java 最终词法分析的类
+    │      lexicalTree.java 抽象语法树
+    │      minDfa.java 最小化
+    │      reText.java 正则表达式
+    │      stringAddSomething.java
+    │      Token.java
+    │
+    ├─SyntaxAnalysisPackage
     │
     └─Tools
             myIoClass.java 输入输出类
             MyTools.java 一些需要用到的工具的类
 ```
-<<<<<<< HEAD
-=======
-HEAD
 
->>>>>>> 修改部分文件名以及包名
 ### 流程
-`reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `syntaxTree.java构建抽象语法树` -->
-`DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `SyntaxWord.java词法分析并生成token序列`
+`reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `lexicalTree.java构建抽象语法树` -->
+`DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `LexicalAnalysis.java词法分析并生成token序列`
 ### 使用方法
-直接调用`SyntaxWord`类的`LexcalAnalysis()`方法即可，其参数为源代码的位置，会在同级生成xxx.token的保存着token序列的文本文件
+直接调用`LexicalAnalysis`类的`LexcalAnalysis()`方法即可，其参数为源代码的位置，会在同级生成xxx.token的保存着token序列的文本文件
 
 主要方法均在龙书以及相应代码的注释中,如有错误以及不足欢迎指出.

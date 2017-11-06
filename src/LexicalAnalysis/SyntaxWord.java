@@ -12,6 +12,7 @@ public class SyntaxWord {
     private List<minDfa> digit = null;
     private List<minDfa> identlfier = null;
     MyTools tools = null;
+    myIoClass ioTool = null;
     private String[] digitAlpha = null;
     private String[] identlfierAlpha = null;
 
@@ -21,21 +22,12 @@ public class SyntaxWord {
         identlfierAlpha = tools.getAlpha(reText.identlfierRe);
         digit = minDfa.build(DFA.build(reText.digitRe));
         identlfier = minDfa.build(DFA.build(reText.identlfierRe));
+        ioTool = new myIoClass();
     }
 
     public static void main(String[] a){
         SyntaxWord test = new SyntaxWord();
-//        String[] t = {"a1234","1a23","while","asdsad_909","+123.345"};
-//        for (String i:t){
-//            test.demo(i);
-//        }
-//        test.chToToken("for(int i=0;i<5;i++)");
-        String[] testData = new myIoClass().read("test.pt").split("\n");
-//        test.chToToken(testData[0]);
-        for (String i:testData){
-            test.chToToken(i);
-        }
-
+        test.LexcalAnalysis("test.pt");
     }
 
 
@@ -162,7 +154,7 @@ public class SyntaxWord {
         }
     }
     //获取token序列
-    private void chToToken(String str){
+    private String chToToken(String str){
         List<Token> tokenList = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
         boolean strFlag = false;
@@ -216,7 +208,8 @@ public class SyntaxWord {
 //        for (LexicalAnalysis.Token i:tokenList){
 //            System.out.println(i.getType()+":"+i.getValue());
 //        }
-        System.out.println(tokenToStr(tokenList));
+//        System.out.println(tokenToStr(tokenList));
+        return tokenToStr(tokenList);
     }
 
     public String tokenToStr(List<Token> tokens){
@@ -225,6 +218,18 @@ public class SyntaxWord {
             stringBuilder.append("<"+i.getType()+","+i.getValue()+"> ");
         }
         return stringBuilder.toString();
+    }
+
+    public void LexcalAnalysis(String path){
+        String[] data = new myIoClass().read(path).split("\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println("token:");
+        for (String i:data){
+            stringBuilder.append(chToToken(i));
+        }
+        System.out.println(stringBuilder.toString());
+        ioTool.write(path.replace(".pt",".token"),stringBuilder.toString());
+        System.out.println("finished");
     }
 
 }

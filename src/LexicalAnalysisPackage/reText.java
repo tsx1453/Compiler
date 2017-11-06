@@ -1,4 +1,4 @@
-package LexicalAnalysis;
+package LexicalAnalysisPackage;
 
 import java.util.Arrays;
 

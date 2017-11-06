@@ -1,4 +1,4 @@
-package LexicalAnalysis;
+package LexicalAnalysisPackage;
 
 import java.util.*;
 
@@ -44,16 +44,16 @@ public class DFA {
         String[] alphaWithoutSame = getAlphaWithoutSame(alpha);
         allAlphaWithoutSame = null;
         allAlphaWithoutSame = alphaWithoutSame;
-        syntaxTree tree = syntaxTree.build(regex);
-        List<String> follows = cleaData(syntaxTree.getFollows(tree));
+        lexicalTree tree = lexicalTree.build(regex);
+        List<String> follows = cleaData(lexicalTree.getFollows(tree));
 //        for (String str : alpha){
 //            System.out.println(str);
 //        }
         List<DFA> Dstates = new ArrayList<>();
-//        Dstates.add(new LexicalAnalysis.DFA());
+//        Dstates.add(new LexicalAnalysisPackage.DFA());
 //        System.out.println(tree.getFirstPos());
         StringBuilder first = new StringBuilder();
-        for (syntaxTree i : tree.getFirstPos()){
+        for (lexicalTree i : tree.getFirstPos()){
             first.append(String.valueOf(i.getCountId()));
         }
 //        System.out.println(alphaWithoutSame);
@@ -95,7 +95,7 @@ public class DFA {
         for (int i=0;i<dfaGraph.size();i++){
             dfaGraph.get(i).check();
         }
-        if (SyntaxWord.showData){
+        if (LexicalAnalysis.showData){
             System.out.println("dfa:");
             for (Graph graph:dfaGraph){
                 graph.showData();
@@ -233,7 +233,7 @@ public class DFA {
         List<String> temp = new ArrayList<>();
         for (String str : list){
 //            System.out.println(str);
-            if (syntaxTree.judge(str.toCharArray()[0])){
+            if (lexicalTree.judge(str.toCharArray()[0])){
                 continue;
             }
             String[] a = str.split(",");

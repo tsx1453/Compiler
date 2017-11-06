@@ -1,4 +1,4 @@
-package LexicalAnalysis;
+package LexicalAnalysisPackage;
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class minDfa {
             minDfaList.add(newNode);
         }//把原本的复杂的用字符串表示的状态转换为简单的用数字表示的状态的DFA
 //        System.out.println(dfa.size());
-        if (SyntaxWord.showData){
+        if (LexicalAnalysis.showData){
             for (minDfa i:minDfaList){
                 System.out.print(i.staId);
                 System.out.print(":");
@@ -69,7 +69,7 @@ public class minDfa {
         表元素完全一样,结束循环
          */
         ArrayList<intList>[] list = (ArrayList<intList>[]) new ArrayList[2];
-//        List<LexicalAnalysis.intList> list2 = new ArrayList<>();
+//        List<LexicalAnalysisPackage.intList> list2 = new ArrayList<>();
         list[0] = new ArrayList<>();
         list[1] = new ArrayList<>();
         list[0].add(new intList());
@@ -96,12 +96,12 @@ public class minDfa {
 //            System.out.println("index="+index);
 //            showList(list[0],0);
 //            showList(list[1],1);
-//            list[index].add(new LexicalAnalysis.intList());
+//            list[index].add(new LexicalAnalysisPackage.intList());
 //            int size = list[index].size()-1;
 //            list[index].get(size).data.add(0);
 //            last = getNextStateUnin(list[(index + 1)%2],minDfaList,0,)
-//            for (String i:LexicalAnalysis.DFA.allAlphaWithoutSame){
-//                System.out.print(LexicalAnalysis.DFA.allAlphaWithoutSame.length);
+//            for (String i:LexicalAnalysisPackage.DFA.allAlphaWithoutSame){
+//                System.out.print(LexicalAnalysisPackage.DFA.allAlphaWithoutSame.length);
 //            }
 
             for (intList i:list[index]){
@@ -157,10 +157,10 @@ public class minDfa {
             }
             finalDfa.add(newNode);
         }
-//        for (String a:LexicalAnalysis.DFA.allAlphaWithoutSame){
+//        for (String a:LexicalAnalysisPackage.DFA.allAlphaWithoutSame){
 //            System.out.print(a);
 //        }
-        if (SyntaxWord.showData){
+        if (LexicalAnalysis.showData){
             System.out.println("\nfinal data");
             for (minDfa i:finalDfa){
                 System.out.print(i.staId);
@@ -171,7 +171,7 @@ public class minDfa {
                 System.out.println("");
             }
         }
-//        String[] alphaSet = LexicalAnalysis.DFA.allAlphaWithoutSame;
+//        String[] alphaSet = LexicalAnalysisPackage.DFA.allAlphaWithoutSame;
 //        int[][] data = new int[finalDfa.size()][alphaSet.length-1];
 //        for (int i=0;i<finalDfa.size();i++){
 //            for (int j=0;j<alphaSet.length-1;j++){
@@ -205,7 +205,7 @@ public class minDfa {
         if (id != -1) {
             System.out.println("\nlist" + id + ":");
         }else {
-            System.out.println("LexicalAnalysis.minDfa set:");
+            System.out.println("LexicalAnalysisPackage.minDfa set:");
         }
         for (intList i:list){
             System.out.print("id="+list.indexOf(i)+":");

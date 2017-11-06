@@ -18,7 +18,7 @@
 │  CompilerCoding.iml
 │  test.pt //自定义的语言的一个测试样例
 └─src
-    ├─LexicalAnalysis
+    ├─LexicalAnalysisPackage
     │      DFA.java
     │      draw.java DFA可视化的类
     │      Graph.java DFA的图
@@ -33,6 +33,11 @@
             myIoClass.java 输入输出类
             MyTools.java 一些需要用到的工具的类
 ```
+<<<<<<< HEAD
+=======
+HEAD
+
+>>>>>>> 修改部分文件名以及包名
 ### 流程
 `reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `syntaxTree.java构建抽象语法树` -->
 `DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `SyntaxWord.java词法分析并生成token序列`

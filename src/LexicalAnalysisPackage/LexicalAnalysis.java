@@ -1,4 +1,4 @@
-package LexicalAnalysis;
+package LexicalAnalysisPackage;
 
 import Tools.MyTools;
 import Tools.myIoClass;
@@ -6,7 +6,7 @@ import Tools.myIoClass;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SyntaxWord {
+public class LexicalAnalysis {
 
     public static boolean showData = false;
     private List<minDfa> digit = null;
@@ -16,7 +16,7 @@ public class SyntaxWord {
     private String[] digitAlpha = null;
     private String[] identlfierAlpha = null;
 
-    public SyntaxWord() {
+    public LexicalAnalysis() {
         MyTools tools = new MyTools();
         digitAlpha =  tools.getAlpha(reText.digitRe);
         identlfierAlpha = tools.getAlpha(reText.identlfierRe);
@@ -26,23 +26,23 @@ public class SyntaxWord {
     }
 
     public static void main(String[] a){
-        SyntaxWord test = new SyntaxWord();
+        LexicalAnalysis test = new LexicalAnalysis();
         test.LexcalAnalysis("test.pt");
     }
 
 
     private void demo(String t){
 //        switch (syntax(t)){
-//            case LexicalAnalysis.reText.DIGIT:
+//            case LexicalAnalysisPackage.reText.DIGIT:
 //                System.out.println("digit");
 //                break;
-//            case LexicalAnalysis.reText.IDENTLFIER:
+//            case LexicalAnalysisPackage.reText.IDENTLFIER:
 //                System.out.println("identlfier");
 //                break;
-//            case LexicalAnalysis.reText.OPERATE:
+//            case LexicalAnalysisPackage.reText.OPERATE:
 //                System.out.println("operate");
 //                break;
-//            case LexicalAnalysis.reText.RESERVED:
+//            case LexicalAnalysisPackage.reText.RESERVED:
 //                System.out.println("reserved");
 //                break;
 //        }
@@ -205,7 +205,7 @@ public class SyntaxWord {
             }
             stringBuilder.append(i);
         }
-//        for (LexicalAnalysis.Token i:tokenList){
+//        for (LexicalAnalysisPackage.Token i:tokenList){
 //            System.out.println(i.getType()+":"+i.getValue());
 //        }
 //        System.out.println(tokenToStr(tokenList));

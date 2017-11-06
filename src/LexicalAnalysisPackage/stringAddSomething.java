@@ -1,4 +1,4 @@
-package LexicalAnalysis;
+package LexicalAnalysisPackage;
 
 /**
  * Created by tsx14 on 2017/10/11.

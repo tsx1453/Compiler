@@ -25,7 +25,7 @@ public class LexicalAnalysis {
         ioTool = new myIoClass();
     }
 
-    public static void main(String[] a){
+    public static void main(String[] as){
         LexicalAnalysis test = new LexicalAnalysis();
         test.LexcalAnalysis("test.pt");
     }

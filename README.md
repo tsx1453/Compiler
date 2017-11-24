@@ -35,6 +35,10 @@
             myIoClass.java 输入输出类
             MyTools.java 一些需要用到的工具的类
 ```
+<<<<<<< HEAD
+=======
+HEAD
+>>>>>>> 语法
 
 ### 流程
 `reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `lexicalTree.java构建抽象语法树` -->

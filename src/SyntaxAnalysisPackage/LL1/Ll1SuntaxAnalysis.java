@@ -31,7 +31,7 @@ public class Ll1SuntaxAnalysis {
         };
         analysis(new ForecastAnalysisTable(g),"id + id * id");
     }
-
+    //龙书P144下部伪代码
     public static void analysis(ForecastAnalysisTable table,String str){
         Stack<String> stack = new Stack<>();
         str += " $";

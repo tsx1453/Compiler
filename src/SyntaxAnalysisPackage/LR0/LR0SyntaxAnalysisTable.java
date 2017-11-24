@@ -46,7 +46,7 @@ public class LR0SyntaxAnalysisTable {
         start = dfa.start;
         buildTable(dfa);
     }
-
+    //此处自己理解写出,可意会不可言传~~~
     private void buildTable(GrammerDFA gDfa){
         for (DFA dfa:gDfa.graDfa){
             Map<String,String> newMap = new HashMap<>();

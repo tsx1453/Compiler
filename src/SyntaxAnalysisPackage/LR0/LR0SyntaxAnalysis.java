@@ -28,7 +28,7 @@ public class LR0SyntaxAnalysis {
         String[] g = {"A->A + n|n"};
         analysis(new LR0SyntaxAnalysisTable(g),"n+n");
     }
-
+    //根据龙书P160上方伪码
     public static void analysis(LR0SyntaxAnalysisTable table,String str){
         str += "$";
         String[] data = str.split("");

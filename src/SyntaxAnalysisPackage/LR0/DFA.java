@@ -28,9 +28,9 @@ import java.util.Map;
 public class DFA {
 
     public static int count = 0;
-    public int id;
+    public int id;//每个DFA自己带有一个标号
     public List<String> items;
-    public Map<String,DFA> nexts;
+    public Map<String,DFA> nexts;//邻接链表
 
     public DFA() {
         id = count++;

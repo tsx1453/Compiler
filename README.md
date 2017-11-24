@@ -11,7 +11,25 @@
 * 然后根据语法树构建各个参数,最后可以得到DFA,DFA我是用的一个List表示,详情请看相关注释
 * 最后词法分析器我是先构建好各个DFA,然后先一个字符一个字符往后扫描,将符号和字符串分开,符号直接生成token,字符串通过正则表达式判定种类以及正误,判断类型的先后顺序是 `符号(字符串)->保留字->标识符(数字)`,(括号里面等同于平级,级在同一阶段检测)除了这几类,我单独有一个类型字符串,因为发现和标识符放一起不太对,但是通过正则又不好写,因为字符串接受一切类型,于是在扫描时通过其 `'字符串'` 特殊结构直接将其生成token,对于注释的判定,只规定了单行注释即 `#`,在生成token时直接忽略
 
-### 文件结构
+#### 流程
+`reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `lexicalTree.java构建抽象语法树` -->
+`DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `LexicalAnalysis.java词法分析并生成token序列`
+#### 使用方法
+直接调用`LexicalAnalysis`类的`LexcalAnalysis()`方法即可，其参数为源代码的位置，会在同级生成xxx.token的保存着token序列的文本文件
+
+## 语法分析
+### LL1
+* 消除左递归,提取左公因子
+* 得到first,follow集合
+* 得到分析表
+#### 使用
+调用`Ll1SuntaxAnalysis`类的`analysis`方法即可;
+### LR0
+* 根据文法构建DFA
+* 根据DFA得到分析表
+#### 使用
+调用`LR0SyntaxAnalysis`类的`analysi`方法
+## 文件结构
 
 ```文件结构:
 │  .gitignore
@@ -26,24 +44,26 @@
     │      lexicalTree.java 抽象语法树
     │      minDfa.java 最小化
     │      reText.java 正则表达式
-    │      stringAddSomething.java
+    │      stringAddSomething.java 添加cat节点
     │      Token.java
     │
     ├─SyntaxAnalysisPackage
+    │  Grammar.java 保存文法的类
+    │  │
+    │  ├─LL1
+    │  │      FirstAndFollows.java 
+    │  │      ForecastAnalysisTable.java 分析表
+    │  │      GrammarProcess.java 处理文法,消除左递归,提取左公因子
+    │  │      Ll1SuntaxAnalysis.java 语法分析的主类
+    │  │
+    │  └─LR0
+    │         DFA.java
+    │         GrammerDFA.java 
+    │         LR0SyntaxAnalysis.java
+    │         LR0SyntaxAnalysisTable.java
     │
     └─Tools
             myIoClass.java 输入输出类
             MyTools.java 一些需要用到的工具的类
 ```
-<<<<<<< HEAD
-=======
-HEAD
->>>>>>> 语法
-
-### 流程
-`reText.java获取正则表达式` --> `stringAddSomething.java添加cat节点` --> `lexicalTree.java构建抽象语法树` -->
-`DFA.java构建DFA` --> `minDfa.java最小化DFA` --> `LexicalAnalysis.java词法分析并生成token序列`
-### 使用方法
-直接调用`LexicalAnalysis`类的`LexcalAnalysis()`方法即可，其参数为源代码的位置，会在同级生成xxx.token的保存着token序列的文本文件
-
 主要方法均在龙书以及相应代码的注释中,如有错误以及不足欢迎指出.

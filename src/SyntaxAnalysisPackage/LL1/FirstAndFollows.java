@@ -104,7 +104,7 @@ public class FirstAndFollows {
     public List<String> getProductKey() {
         return productKey;
     }
-
+    //龙书P140
     private void Follows(){
         HashSet<String> teSet = new HashSet<>();
         teSet.add("$");
